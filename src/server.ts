@@ -20,7 +20,7 @@ class App{
     }
     protected initHandler(_h: IHandler[]) { 
         _h.forEach((controller) => { 
-            this._defaultApps.use('/api/v1/', controller.router);
+            this._defaultApps.use('/api/v1', controller.router);
         })
       }
 }

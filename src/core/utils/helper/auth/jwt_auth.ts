@@ -15,10 +15,8 @@ export const generate = async (payload: any,secondExpired: any)=>{
 }
 
 export const auth =  (req:Request,res:Response,next:NextFunction): any=>{
-    if (!req.headers.authorization) {
-        return res.status(401).send("Unauthorized")
-    }
-    const token:string = req.headers.authorization.split(' ')[1]
+    const headers = req.headers.authorization as string
+    const token:string = headers.split(' ')[1]
     const privateKey: string = process.env.secret_key || "hidays"
     try{
         const decoded:any = jwt.verify(token,privateKey)

@@ -40,7 +40,7 @@ export class QueryProxy implements IQueryProxy {
 
   findById(id: string, params?:any): Promise<any> {
     return new Promise((resolve, reject) => {
-      const r =this.model.findById(id).select(`-${params?.exept}`)
+      const r =this.model.findById(id).select(`-${params?.except}`)
       r.exec((err, result) => { 
         if (!err) { 
           return resolve(result);
