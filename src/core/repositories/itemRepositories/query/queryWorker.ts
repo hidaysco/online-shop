@@ -6,19 +6,19 @@ export default interface IDomain {
 }
 export class queryWorker implements IDomain{
     bcrypt = bcryptjs
-    _query: query
+    query: query
     constructor() {
-        this._query = new query()
+        this.query = new query()
     }
     getDetail = async (id:string)=>{
-        const result = await this._query.getDetail(id)
+        const result = await this.query.getDetail(id)
         if (result) {
             return result
         }
         return null
     } 
     getItem = async ()=>{
-        const result = await this._query.getItem()
+        const result = await this.query.getItem()
         if (result) {
             return result
         }

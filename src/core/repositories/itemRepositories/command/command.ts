@@ -6,14 +6,14 @@ export default interface IQuery {
     delete(id: string): Promise <any>
 }
 export class command implements IQuery {
-    _command: QueryProxy
+    command: QueryProxy
     constructor(){
-        this._command= new QueryProxy(MItem)
+        this.command= new QueryProxy(MItem)
     }
 
     create(data: IItem): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.create(data).then((result) => {
+            this.command.create(data).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
@@ -22,7 +22,7 @@ export class command implements IQuery {
     }
     update(id:string ,data: IItem): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.update(id, data).then((result) => {
+            this.command.update(id, data).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
@@ -31,7 +31,7 @@ export class command implements IQuery {
     }
     delete(id:string): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.delete(id).then((result) => {
+            this.command.delete(id).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);

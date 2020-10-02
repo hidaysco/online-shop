@@ -5,13 +5,13 @@ export default interface IQuery {
     getItem(): Promise <any>
 }
 export class query implements IQuery {
-    _query: QueryProxy
+    query: QueryProxy
     constructor(){
-        this._query= new QueryProxy(MItem)
+        this.query= new QueryProxy(MItem)
     }
     getItem(): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._query.find().then((result) => {
+            this.query.find().then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
@@ -20,7 +20,7 @@ export class query implements IQuery {
     }
     getDetail(id: string,params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._query.findById(id,params).then((result) => {
+            this.query.findById(id,params).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);

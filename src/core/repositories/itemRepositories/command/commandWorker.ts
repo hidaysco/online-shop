@@ -6,14 +6,14 @@ export default interface ICommand {
     delete(id: string): Promise <any>
 }
 export class commandWorker implements ICommand {
-    _command: command
+    command: command
     bcrypt = bcryptjs
     constructor(){
-        this._command= new command()
+        this.command= new command()
     }
     create(data: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.create(data).then((result) => {
+            this.command.create(data).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
@@ -22,7 +22,7 @@ export class commandWorker implements ICommand {
     }
     update(id:string ,data?:any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.update(id, data).then((result) => {
+            this.command.update(id, data).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
@@ -31,7 +31,7 @@ export class commandWorker implements ICommand {
     }
     delete(id:string): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._command.delete(id).then((result) => {
+            this.command.delete(id).then((result) => {
                 resolve(result);
             }).catch((err: Error) => {
                 reject(err);
