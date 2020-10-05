@@ -22,8 +22,11 @@ export default class userHandler implements IHandler {
         this.router.get(`${this.path}/:id`, auth, this.getUserById)
         this.router.put(`${this.path}/:id`,auth, this.update)
         this.router.delete(`${this.path}/:id`,auth, this.delete)
+        this.router.get(`${this.path}/`, this.data)
     }
-    
+    private data(req: Request, res: Response) {
+        res.send('aww')
+    }
     private register = async (req: Request, res: Response) => {
         const data :any =req.body
         const result = await this.command.registerUser(data)

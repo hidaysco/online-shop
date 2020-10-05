@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-const mongoURL = "mongodb://localhost:27017/onlineshop" || process.env.mongoUrl
+const mongoURL = process.env.mongoUrl || "mongodb://localhost:27017/onlineshop"
 export class mongoConnection{
     constructor(){
         this.connect()
