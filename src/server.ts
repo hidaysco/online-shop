@@ -30,6 +30,6 @@ const app = new App([
    new itemHandler()
 ]) 
 
-app._defaultApps.listen(process.env.PORT, () => { 
-    console.log(`aplikasi ini berjalan di port ${process.env.PORT}`);
+app._defaultApps.listen(process.env.PORT||5000, () => { 
+    console.log(`aplikasi ini berjalan di port ${process.env.PORT||5000}`);
 })
